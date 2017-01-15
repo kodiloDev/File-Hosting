@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://localhost/WcfServiceFile" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost/WcfServiceFile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://localhost/WcfServiceFile/Imports">
+      <xsd:import schemaLocation="http://localhost/WcfServiceFile/Service1.svc?xsd=xsd0" namespace="http://localhost/WcfServiceFile" />
+      <xsd:import schemaLocation="http://localhost/WcfServiceFile/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/WcfServiceFile/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFileService_TestConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestConnection" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_TestConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_AddFileInBase_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFileInBase" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_AddFileInBase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFileInBaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_GetAllFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFiles" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_GetAllFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_DeleteFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_DeleteFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_UpdateFileInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_UpdateFileInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_GetFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFile" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_GetFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFileService">
+    <wsdl:operation name="TestConnection">
+      <wsdl:input wsaw:Action="http://localhost/WcfServiceFile/IFileService/TestConnection" message="tns:IFileService_TestConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost/WcfServiceFile/IFileService/TestConnectionResponse" message="tns:IFileService_TestConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFileInBase">
+      <wsdl:input wsaw:Action="http://localhost/WcfServiceFile/IFileService/AddFileInBase" message="tns:IFileService_AddFileInBase_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost/WcfServiceFile/IFileService/AddFileInBaseResponse" message="tns:IFileService_AddFileInBase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFiles">
+      <wsdl:input wsaw:Action="http://localhost/WcfServiceFile/IFileService/GetAllFiles" message="tns:IFileService_GetAllFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost/WcfServiceFile/IFileService/GetAllFilesResponse" message="tns:IFileService_GetAllFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input wsaw:Action="http://localhost/WcfServiceFile/IFileService/DeleteFile" message="tns:IFileService_DeleteFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost/WcfServiceFile/IFileService/DeleteFileResponse" message="tns:IFileService_DeleteFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFileInfo">
+      <wsdl:input wsaw:Action="http://localhost/WcfServiceFile/IFileService/UpdateFileInfo" message="tns:IFileService_UpdateFileInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost/WcfServiceFile/IFileService/UpdateFileInfoResponse" message="tns:IFileService_UpdateFileInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:input wsaw:Action="http://localhost/WcfServiceFile/IFileService/GetFile" message="tns:IFileService_GetFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost/WcfServiceFile/IFileService/GetFileResponse" message="tns:IFileService_GetFile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
